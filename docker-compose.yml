@@ -1,10 +1,21 @@
 version: '3.7'
 
-# Following reference
-# Link: https://github.com/confluentinc/cp-docker-images/blob/5.3.3-post/examples/kafka-cluster/docker-compose.yml
-
 services:
-  # ============================================================= zookeeper cluster ========================================================================
+  playground-server:
+    container_name: playground-server
+    image: squaaat/playground-server:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    entrypoint: "/playground"
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+      - "5000:5000"
+    volumes:
+      - ./log:/tmp/search-server
+    environment:
+
   playground-mysql:
     image: mysql:latest
     ports:
