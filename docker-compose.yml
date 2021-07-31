@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    entrypoint: "/playground"
+    entrypoint: "/playground-server"
     ports:
       - "3000:3000"
 

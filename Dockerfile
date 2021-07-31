@@ -7,12 +7,12 @@ RUN go mod download
 COPY . ./
 
 ENV CGO_ENABLED=0
-RUN go build -o ./playground-server ./main.go
+RUN go build -o /build/playground-server ./main.go
 
-# FROM alpine:3.12
+FROM alpine:3.12
 
-# WORKDIR /
+WORKDIR /
 
-# COPY --from=BUILDER /build/playgroud-server /playground-server
+COPY --from=BUILDER /build/playground-server /playground-server
 
-# ENTRYPOINT ["echo", "Must specify a binary for entrypoint, /playground-server"]
+ENTRYPOINT ["echo", "Must specify a binary for entrypoint, /playground-server"]
