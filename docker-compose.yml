@@ -1,0 +1,14 @@
+version: '3.7'
+
+# Following reference
+# Link: https://github.com/confluentinc/cp-docker-images/blob/5.3.3-post/examples/kafka-cluster/docker-compose.yml
+
+services:
+  # ============================================================= zookeeper cluster ========================================================================
+  playground-mysql:
+    image: mysql:latest
+    ports:
+      - 43306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: mysql
