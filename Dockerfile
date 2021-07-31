@@ -6,6 +6,10 @@ RUN go mod download
 
 COPY . ./
 
+ENV CGO_ENABLED=0
+RUN go build  -o ./playground ./main.go
+
+
 FROM alpine:3.12
 
 WORKDIR /

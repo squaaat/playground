@@ -26,14 +26,11 @@ func main() {
 	}
 	fmt.Println("success")
 
-	err = client.Create("1")
-	err = client.Create("1")
-	err = client.Create("1")
-	err = client.Create("1")
-	err = client.Create("1")
-	err = client.Create("1")
-	err = client.Create("1")
-
+	err = client.Create(db.Todo{Text: "1"})
+	err = client.Create(db.Todo{Text: "1"})
+	err = client.Create(db.Todo{Text: "1"})
+	err = client.Create(db.Todo{Text: "1"})
+	err = client.Create(db.Todo{Text: "1"})
 	if err != nil {
 		fmt.Println(err)
 	}
