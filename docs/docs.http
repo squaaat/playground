@@ -1,0 +1,30 @@
+### todo 만들기
+
+PUT http://localhost:3000/create
+Content-Type: application/json
+
+{
+  "todo": {
+    "text": "jin jin"
+  }
+}
+
+
+### todo 보기
+
+GET http://localhost:3000/todos
+Content-Type: application/json
+
+
+### get one
+GET http://localhost:3000/todo/4
+Content-Type: application/json
+
+### get one - 204
+GET http://localhost:3000/todo/441312312355
+Content-Type: application/json
+
+
+### get one - 400
+GET http://localhost:3000/todo/4413123w12355
+Content-Type: application/json

@@ -12,8 +12,8 @@ type Client struct {
 }
 
 type Todo struct {
-	ID   int64
-	Text string
+	ID   int64	`json:"id"`
+	Text string	`json:"text"`
 }
 
 func New(host string, port string, username string, password string, schema string) (*Client, error) {
@@ -51,6 +51,24 @@ func (c *Client) Create(todo Todo) error {
 
 	fmt.Println(res)
 	return nil
+}
+
+func (c *Client) GetById(todo Todo) (*Todo, error) {
+	res, err := c.DB.Query(`SELECT id, todo FROM mytable WHERE id = ? LIMIT 1`, todo.ID)
+	if err != nil{
+		return nil, err
+	}
+
+
+	var t *Todo
+	for res.Next() {
+		t := &Todo{}
+		err = res.Scan(&t.ID, &t.Text)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return t, nil
 }
 
 func (c *Client) GetAll() ([]Todo, error) {

@@ -10,8 +10,6 @@ services:
     entrypoint: "/playground"
     ports:
       - "3000:3000"
-    volumes:
-      - ./log:/tmp/search-server
 
   playground-mysql:
     image: mysql:latest
